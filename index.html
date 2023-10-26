@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Front End Fox</title>
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Change the text selection color to red */
+        ::selection {
+            background: #ED7D31;
+            color: #F6F1EE; /* Optionally, you can change the text color to white for better visibility */
+        }
+
+        /* Basic styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #4F4A45;
+        }
+
+        header {
+            background-color: #6C5F5B;
+            color: #F6F1EE;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            font-family: 'Arial Black', Gadget, sans-serif;
+            font-size: 2.5em;
+        }
+
+        h1:after {
+            content: '_';
+            animation: 0.5s blink step-end infinite;
+        }
+
+        nav ul {
+            list-style: none;
+            background-color: #ED7D31;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: #F6F1EE;
+            text-decoration: none;
+        }
+
+        /* Custom button styles */
+        .myButton {
+            border: none;
+            border-radius: 50%;
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+        .myButton img {
+            display: block;
+        }
+
+        section {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #F6F1EE;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #4F4A45;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #6C5F5B;
+        }
+
+        /* Style for the Skills section */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .skills-image {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .skills-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .skills-bars {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .skill-bar {
+            margin-bottom: 10px;
+        }
+
+        .skill-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .skill-level {
+            background-color: #ED7D31;
+            color: #F6F1EE;
+            width: 0; /* Set the skill level width here (e.g., 70% or 80%) */
+            padding: 5px;
+            border-radius: 5px;
+            transition: width 0.5s; /* Add animation for skill level bar */
+        }
+
+        /* Add more styles for the skill bars as needed */
+
+        /* Experience styling */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 2 columns */
+            grid-gap: 20px; /* Space between columns and rows */
+        }
+
+        .experience-item {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .line {
+            width: 2px;
+            height: 100%;
+            background-color: #ED7D31;
+            position: relative;
+            margin-right: 10px;
+        }
+
+        .content {
+            padding: 10px;
+        }
+
+        h4 {
+            margin: 0;
+            font-size: 1.2em;
+            color: #4F4A45;
+        }
+
+        ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        li::before {
+            content: "•"; /* Bullet symbol */
+            margin-right: 5px;
+            color: #ED7D31;
+        }
+
+        /* Portfolio styling */
+        .portfolio-item {
+            margin: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.05);
+        }
+
+        .portfolio-item img {
+            max-width: 100%;
+            height: auto;
+            border: 3px solid #fff;
+            border-radius: 5px;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        /* Contact styling */
+        .contact-form {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-row-gap: 10px;
+            justify-items: center;
+        }
+
+        #contactPar {
+            margin-bottom: 20px; /* Add margin between form items */
+        }
+
+        .form-item {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            margin-bottom: 10px; /* Add margin between form items */
+        }
+
+        .label-hidden {
+            position: absolute;
+            clip: rect(1px, 1px, 1px, 1px);
+            overflow: hidden;
+        }
+
+        input, textarea {
+            padding: 5px;
+            border: 1.5px solid #ED7D31;
+            border-radius: 10px;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        input:focus + .label-hidden,
+        textarea:focus + .label-hidden {
+            opacity: 0;
+        }
+
+        button {
+            background-color: #ED7D31;
+            color: #F6F1EE;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 10px;
+            cursor: pointer;
+            margin-top: 10px; /* Add margin between the last form item and the button */
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #333;
+            color: #F6F1EE;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        /* Links styling */
+        a {
+            color: #F6F1EE;
+            text-decoration: none;
+            transition: font-size 0.5s;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #4F4A45;
+            font-size: 1.5em;
+        }
+
+        /* Add some animations */
+        @keyframes borderRadiusAnimation {
+            0% { border-radius: 50%; }
+            16.67% { border-radius: 40%; }
+            33.33% { border-radius: 30%; }
+            50% { border-radius: 20%; }
+            66.67% { border-radius: 10%; }
+            83.33% { border-radius: 0%; }
+            100% { border-radius: 50%; }
+        }
+
+        .radius {
+            animation: borderRadiusAnimation 2s infinite;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Apply animations */
+        .animated {
+            animation: fadeInUp 1s both;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="https://img.freepik.com/free-vector/hand-painted-fox-design_1152-89.jpg?w=740&t=st=1698235059~exp=1698235659~hmac=c616f4817863432b523f3c2fa1c742e890001a431bd7efb5f3a28fc989002931" alt="The Front End Fox Logo" height="70px" class="radius">
+                <h1>The Front End Fox</h1>
+            </div>
+            <ul>
+                <li>
+                    <button class="myButton" id="themeButton">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/OOjs_UI_icon_moon.svg" alt="Moon">
+                    </button>
+                </li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li>
+                    <button class="myButton" id="hideButton">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/OOjs_UI_icon_moon.svg" alt="Moon">
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="container animated">
+            <h2>Hi, I’m <span style="color: #ED7D31;">Kuma</span> - <span style="border-bottom: 2.5px solid #ED7D31;">The Front End Fox</span></h2>
+            <h3><span style="color: #4F4A45;">Nice to meet you!</span></h3>
+            <p>Since beginning my journey as a freelance designer over 11 years ago, I've done remote work for agencies, consulted for startups, and collaborated with talented people to create digital products for both business and consumer use. I'm quietly confident, naturally curious, and perpetually working on improving my chops one design problem at a time.</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container animated">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="skills-image">
+                    <img src="https://img.freepik.com/free-vector/hand-painted-fox-design_1152-89.jpg?w=740&t=st=1698235059~exp=1698235659~hmac=c616f4817863432b523f3c2fa1c742e890001a431bd7efb5f3a28fc989002931" alt="The Front End Fox Logo" height="70px" class="radius">
+                </div>
+                <div class="skills-bars">
+                    <!-- Add your skill bars here -->
+                    <div class="skill-bar">
+                        <div class="skill-name">Responsibility</div>
+                        <div class="skill-level" style="width: 100%;">100%</div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-name">HTML</div>
+                        <div class="skill-level" style="width: 95%;">95%</div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-name">CSS</div>
+                        <div class="skill-level" style="width: 85%;">85%</div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-name">Javascript</div>
+                        <div class="skill-level" style="width: 75%;">75%</div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-name">Bootstrapt</div>
+                        <div class="skill-level" style="width: 70%;">70%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container animated">
+            <h2>Experience</h2>
+            <div class="experience-grid">
+                <div class="experience-item">
+                    <div class="line"></div>
+                    <div class="content">
+                        <h4>Frontend & Data Visualization</h4>
+                        <ul>
+                            <li>Front-end development (react.js, typescript) of interface features and design improvements</li>
+                            <li>Developing data visualizations in d3.js, Tableau, or other Javascript charting libraries</li>
+                            <li>Other activities and special projects as assigned.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="line"></div>
+                    <div class="content">
+                        <h4>Web Development Intern</h4>
+                        <ul>
+                            <li>Help to update and maintain our website design</li>
+                            <li>Web performance optimization and testing</li>
+                            <li>Programming skills in HTML, CSS and JavaScript</li>
+                            <li>Experience with Front end framework such as React/Redux</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="line"></div>
+                    <div class "content">
+                        <h4>Web Engineer (HTML/JavaScript)</h4>
+                        <ul>
+                            <li>Maintains active, global e-commerce websites by performing routine updates</li>
+                            <li>Add new products and pages as necessary, working with designers and stakeholders</li>
+                            <li>Assist in the modification of company's external and internal websites based on user feedback</li>
+                            <li>Code, test, debug, fix, and document the website.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="line"></div>
+                    <div class="content">
+                        <h4>Frontend Developer</h4>
+                        <ul>
+                            <li>Build and maintain user-friendly, data-rich JavaScript/HTML/CSS applications</li>
+                            <li>Extend existing mockups by extrapolating visual components</li>
+                            <li>Collaborate with software engineers, product owners, and designers</li>
+                            <li>Troubleshoot and resolve issues, problems, and errors encountered across our web properties, internal applications, and systems as reported or experienced</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Add more experience items as needed -->
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="container animated">
+            <h2>Portfolio</h2>
+            <div class="portfolio-item">
+                <img src="image1.jpg" alt="Project 1">
+                <h3>Project 1</h3>
+                <p>Description of project 1.</p>
+            </div>
+            <div class="portfolio-item">
+                <img src="image2.jpg" alt="Project 2">
+                <h3>Project 2</h3>
+                <p>Description of project 2.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container animated">
+            <h2>Contact</h2>
+            <p id="contactPar">Have a question or want to work together?</p>
+            <div class="contact-form">
+                <form>
+                    <div class="form-item">
+                        <label class="label-hidden" for="name">Name</label>
+                        <input type="text" id="name" name="name" oninput="handleInput(this)">
+                    </div>
+                    <div class="form-item">
+                        <label class="label-hidden" for="email">Email</label>
+                        <input type="email" id="email" name="email" oninput="handleInput(this)">
+                    </div>
+                    <div class="form-item">
+                        <label class="label-hidden" for="message">Message</label>
+                        <textarea id="message" name="message" oninput="handleInput(this)"></textarea>
+                    </div>
+                    <div class="form-item">
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; The Front End Fox Project - Georgi Binev</p>
+    </footer>
+</body>
+</html>
