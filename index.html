@@ -13,10 +13,21 @@
             box-sizing: border-box;
         }
 
+        /* Add this CSS code for the blinking effect */
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .blinking {
+            animation: blink 1s infinite;
+        }
+
         /* Change the text selection color to red */
         ::selection {
             background: #ED7D31;
-            color: #F6F1EE; /* Optionally, you can change the text color to white for better visibility */
+            color: #F6F1EE;
         }
 
         /* Basic styling */
@@ -89,92 +100,87 @@
             font-size: 1.2em;
             color: #6C5F5B;
         }
-        
+
         /* Add this style for the social buttons */
-.social-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-}
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
 
-.social-button {
-    width: 50px; /* Adjust the size as needed */
-    height: 50px; /* Adjust the size as needed */
-    border: none;
-    border-radius: 5px;
-    overflow: hidden;
-    margin: 5px;
-    transition: transform 0.3s ease-in-out; /* Add transition for smooth hover effect */
-}
+        .social-button {
+            width: 50px;
+            height: 50px;
+            border: none;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 5px;
+            transition: transform 0.3s ease-in-out;
+            transition: transform 0.9s ease-in-out;
+        }
 
-.social-button img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+        .social-button img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-/* Add this style for the hover effect */
-.social-button:hover {
-    transform: scale(1.5); /* Increase the button size on hover */
-    opacity: 0.99; /* Reduce the opacity on hover */
-    background-color: #4F4A45; /* Change the button's background color to red on hover */
-}
-}
-
-
+        /* Add this style for the hover effect */
+        .social-button:hover {
+            transform: scale(1.5);
+            opacity: 0.99;
+            background-color: #4F4A45;
+            transform: rotate(360deg);
+        }
 
         /* Style for the Skills section */
-        
-        /* Add this style for the Skills section */
-.skills-container {
-    display: grid;
-    justify-content: center;
-}
+        .skills-container {
+            display: grid;
+            justify-content: center;
+        }
 
-.skills-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Equal width for image and bars */
-    align-items: center;
-    grid-gap: 50px; /* Adjust the gap between image and bars */
-}
+        .skills-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            grid-gap: 50px;
+        }
 
-.skills-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    justify-self: end; /* Align the image to the end */
-}
+        .skills-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            justify-self: end;
+        }
 
-.skills-bars {
-    /* Add your styles for skill bars */
-}
+        .skills-bars {
+            /* Add your styles for skill bars */
+        }
 
-.skill-bar {
-    margin-bottom: 10px;
-}
+        .skill-bar {
+            margin-bottom: 10px;
+        }
 
-.skill-name {
-    font-weight: bold;
-    margin-bottom: 5px;
-}
+        .skill-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
 
-.skill-level {
-    background-color: #ED7D31;
-    color: #F6F1EE;
-    width: 0; /* Set the skill level width here (e.g., 70% or 80%) */
-    padding: 5px;
-    border-radius: 5px;
-    transition: width 0.5s; /* Add animation for skill level bar */
-}
-
-         
+        .skill-level {
+            background-color: #ED7D31;
+            color: #F6F1EE;
+            width: 0;
+            padding: 5px;
+            border-radius: 5px;
+            transition: width 0.5s;
+        }
 
         /* Experience styling */
         .experience-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* 2 columns */
-            grid-gap: 20px; /* Space between columns and rows */
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
         }
 
         .experience-item {
@@ -206,36 +212,35 @@
         }
 
         li::before {
-            content: "•"; /* Bullet symbol */
+            content: "•";
             margin-right: 5px;
             color: #ED7D31;
         }
 
         /* Portfolio styling */
-        
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 15px;
-}
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 15px;
+        }
 
-/* Adjust the portfolio item style */
-.portfolio-item {
-    margin: 0;
-    transition: transform 0.3s ease-in-out;
-    border-radius: 5px;
-    overflow: hidden;
-}
+        /* Adjust the portfolio item style */
+        .portfolio-item {
+            margin: 0;
+            transition: transform 0.3s ease-in-out;
+            border-radius: 5px;
+            overflow: hidden;
+        }
 
-.portfolio-item img {
-    width: 100%;
-        height: 300px; /* Set the desired height */
-        object-fit: cover; /* Maintain aspect ratio and cover the container */
-    border-radius: 5px;
-    overflow: hidden;
-}
+        .portfolio-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 5px;
+            overflow: hidden;
+        }
 
- .portfolio-item:hover {
+        .portfolio-item:hover {
             transform: scale(1.1);
         }
 
@@ -246,7 +251,6 @@
         }
 
         /* Contact styling */
-        
         .contact-form {
             display: grid;
             grid-template-columns: 1fr;
@@ -255,14 +259,14 @@
         }
 
         #contactPar {
-            margin-bottom: 20px; /* Add margin between form items */
+            margin-bottom: 20px;
         }
 
         .form-item {
             display: flex;
             flex-direction: column;
             text-align: center;
-            margin-bottom: 10px; /* Add margin between form items */
+            margin-bottom: 10px;
         }
 
         .label-hidden {
@@ -271,7 +275,8 @@
             overflow: hidden;
         }
 
-        input, textarea {
+        input,
+        textarea {
             padding: 5px;
             border: 1.5px solid #ED7D31;
             border-radius: 10px;
@@ -279,8 +284,8 @@
             transition: 0.3s;
         }
 
-        input:focus + .label-hidden,
-        textarea:focus + .label-hidden {
+        input:focus+.label-hidden,
+        textarea:focus+.label-hidden {
             opacity: 0;
         }
 
@@ -291,7 +296,13 @@
             border-radius: 25px;
             padding: 10px 10px;
             cursor: pointer;
-            margin-top: 10px; /* Add margin between the last form item and the button */
+            margin-top: 10px;
+            transition: transform 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.5);
+            background-color: #333;
         }
 
         /* Footer styling */
@@ -300,6 +311,25 @@
             color: #F6F1EE;
             text-align: center;
             padding: 10px 0;
+        }
+
+        /* Typewriter effect for the footer text */
+        #footer-text {
+            overflow: hidden;
+            border-right: .15em solid orange;
+            white-space: nowrap;
+            margin: 0;
+            animation: typewriter 2s steps(20, end), blink-caret .5s step-end infinite;
+        }
+
+        @keyframes typewriter {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: orange }
         }
 
         /* Links styling */
@@ -348,11 +378,13 @@
     </style>
 </head>
 <body>
+
+	
     <header>
         <nav>
             <div class="logo">
                 <img src="https://img.freepik.com/free-vector/hand-painted-fox-design_1152-89.jpg?w=740&t=st=1698235059~exp=1698235659~hmac=c616f4817863432b523f3c2fa1c742e890001a431bd7efb5f3a28fc989002931" alt="The Front End Fox Logo" height="70px" class="radius">
-                <h1>The Front End F🦊x</h1>
+                <h1>The Front End F<span class="blinking">🦊</span>x</h1>
             </div>
             <ul>
                 <li><a href="#home">Home</a></li>
@@ -371,15 +403,16 @@
 
     <section id="home">
     <div class="container animated">
-        <h2>Hi, I’m <span style="color: #ED7D31;">Kuma</span> - <span style="border-bottom: 2.5px solid #ED7D31;">The Front End F🦊x</span></h2>
+        
+        <h2>Hi, I’m <span style="color: #ED7D31;">Kuma</span> - <span style="border-bottom: 2.5px solid #ED7D31;">The Front End F<span class="blinking">🦊</span>x</span></h2>
+
+        
         <h3><span style="color: #4F4A45;">Nice to meet you!</span></h3>
         <p>Welcome! I'm the Creative Fox, and I'm passionate about crafting captivating digital experiences as a Freelance Front End Developer. With a keen eye for detail and a knack for bringing visions to life, I specialize in building dynamic, user-friendly websites that stand out in today's digital realm.</p>
 
 <p>My journey in the world of web development has been an adventurous blend of creativity and technical finesse. Over the years, I've honed my skills, working with diverse clients, from startups to established businesses, to create stunning and functional websites that leave a lasting impression.</p>
 
 <p>What sets me apart? I'm not just a developer; I'm a storyteller. I thrive on understanding your ideas and translating them into seamless, interactive web designs. From conceptualization to execution, I am dedicated to bringing your vision to fruition.</p>
-
-<p>Let's collaborate to turn your aspirations into digital masterpieces. Whether it's revamping an existing site or starting from scratch, I'm here to provide tailored solutions that reflect your brand, engage your audience, and drive results. Together, we can create a digital presence that truly sets you apart.</p>
         
         <div class="social-buttons">
             <button class="social-button"><img src="https://www.svgrepo.com/show/32355/facebook.svg" alt="Facebook"></button>
@@ -534,7 +567,8 @@
     <section id="contact">
         <div class="container animated">
             <h2>Contact</h2>
-            <p id="contactPar">Have a question or want to work together?</p>
+            <h4 id="contactPar">Have a question or want to work together?</h4>
+            
             <div class="contact-form">
                 <form>
                     <div class="form-item">
@@ -554,11 +588,15 @@
                     </div>
                 </form>
             </div>
+            
+            
+<p>Let's collaborate to turn your aspirations into digital masterpieces. Whether it's revamping an existing site or starting from scratch, I'm here to provide tailored solutions that reflect your brand, engage your audience, and drive results. Together, we can create a digital presence that truly sets you apart.</p>
         </div>
     </section>
 
     <footer>
-        <p>&copy; The Front End Fox Project - Georgi Binev</p>
-    </footer>
+    <p id="footer-text">&copy; The Front End F<span class="blinking">🦊</span>x Project - Georgi Binev</p>
+</footer>
+
 </body>
 </html>
