@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Front End Fox</title>
     <link rel="icon" href="https://img.freepik.com/free-vector/hand-painted-fox-design_1152-89.jpg?w=740&t=st=1698235059~exp=1698235659~hmac=c616f4817863432b523f3c2fa1c742e890001a431bd7efb5f3a28fc989002931" type="image/x-icon">
+    <title>The Front End Fox</title>
     <style>
         /* Reset some default styles */
         * {
@@ -37,11 +37,6 @@
             font-size: 2.5em;
         }
 
-        h1:after {
-            content: '_';
-            animation: 0.5s blink step-end infinite;
-        }
-
         nav ul {
             list-style: none;
             background-color: #ED7D31;
@@ -51,7 +46,7 @@
 
         nav ul li {
             display: inline;
-            margin: 0 1rem;
+            margin: 0 2rem;
         }
 
         nav ul li a {
@@ -77,12 +72,11 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
             background-color: #F6F1EE;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         h2 {
@@ -95,51 +89,86 @@
             font-size: 1.2em;
             color: #6C5F5B;
         }
+        
+        /* Add this style for the social buttons */
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.social-button {
+    width: 50px; /* Adjust the size as needed */
+    height: 50px; /* Adjust the size as needed */
+    border: none;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 5px;
+    transition: transform 0.3s ease-in-out; /* Add transition for smooth hover effect */
+}
+
+.social-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Add this style for the hover effect */
+.social-button:hover {
+    transform: scale(1.5); /* Increase the button size on hover */
+    opacity: 0.99; /* Reduce the opacity on hover */
+    background-color: #4F4A45; /* Change the button's background color to red on hover */
+}
+}
+
+
 
         /* Style for the Skills section */
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-        }
+        
+        /* Add this style for the Skills section */
+.skills-container {
+    display: grid;
+    justify-content: center;
+}
 
-        .skills-image {
-            flex: 1;
-            padding: 20px;
-            text-align: center;
-        }
+.skills-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Equal width for image and bars */
+    align-items: center;
+    grid-gap: 50px; /* Adjust the gap between image and bars */
+}
 
-        .skills-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
+.skills-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    justify-self: end; /* Align the image to the end */
+}
 
-        .skills-bars {
-            flex: 1;
-            padding: 20px;
-        }
+.skills-bars {
+    /* Add your styles for skill bars */
+}
 
-        .skill-bar {
-            margin-bottom: 10px;
-        }
+.skill-bar {
+    margin-bottom: 10px;
+}
 
-        .skill-name {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
+.skill-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
 
-        .skill-level {
-            background-color: #ED7D31;
-            color: #F6F1EE;
-            width: 0; /* Set the skill level width here (e.g., 70% or 80%) */
-            padding: 5px;
-            border-radius: 5px;
-            transition: width 0.5s; /* Add animation for skill level bar */
-        }
+.skill-level {
+    background-color: #ED7D31;
+    color: #F6F1EE;
+    width: 0; /* Set the skill level width here (e.g., 70% or 80%) */
+    padding: 5px;
+    border-radius: 5px;
+    transition: width 0.5s; /* Add animation for skill level bar */
+}
 
-        /* Add more styles for the skill bars as needed */
+         
 
         /* Experience styling */
         .experience-grid {
@@ -183,20 +212,31 @@
         }
 
         /* Portfolio styling */
-        .portfolio-item {
-            margin: 20px;
-            transition: transform 0.3s ease-in-out;
-        }
+        
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
+}
 
-        .portfolio-item:hover {
-            transform: scale(1.05);
-        }
+/* Adjust the portfolio item style */
+.portfolio-item {
+    margin: 0;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 5px;
+    overflow: hidden;
+}
 
-        .portfolio-item img {
-            max-width: 100%;
-            height: auto;
-            border: 3px solid #fff;
-            border-radius: 5px;
+.portfolio-item img {
+    width: 100%;
+        height: 300px; /* Set the desired height */
+        object-fit: cover; /* Maintain aspect ratio and cover the container */
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+ .portfolio-item:hover {
+            transform: scale(1.1);
         }
 
         h3 {
@@ -206,6 +246,7 @@
         }
 
         /* Contact styling */
+        
         .contact-form {
             display: grid;
             grid-template-columns: 1fr;
@@ -311,21 +352,16 @@
         <nav>
             <div class="logo">
                 <img src="https://img.freepik.com/free-vector/hand-painted-fox-design_1152-89.jpg?w=740&t=st=1698235059~exp=1698235659~hmac=c616f4817863432b523f3c2fa1c742e890001a431bd7efb5f3a28fc989002931" alt="The Front End Fox Logo" height="70px" class="radius">
-                <h1>The Front End Fox</h1>
+                <h1>The Front End F🦊x</h1>
             </div>
             <ul>
-                <li>
-                    <button class="myButton" id="themeButton">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/OOjs_UI_icon_moon.svg" alt="Moon">
-                    </button>
-                </li>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li>
-                    <button class="myButton" id="hideButton">
+                    <button class="myButton" id="themeButton">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/OOjs_UI_icon_moon.svg" alt="Moon">
                     </button>
                 </li>
@@ -334,38 +370,58 @@
     </header>
 
     <section id="home">
-        <div class="container animated">
-            <h2>Hi, I’m <span style="color: #ED7D31;">Kuma</span> - <span style="border-bottom: 2.5px solid #ED7D31;">The Front End Fox</span></h2>
-            <h3><span style="color: #4F4A45;">Nice to meet you!</span></h3>
-            <p>Since beginning my journey as a freelance designer over 11 years ago, I've done remote work for agencies, consulted for startups, and collaborated with talented people to create digital products for both business and consumer use. I'm quietly confident, naturally curious, and perpetually working on improving my chops one design problem at a time.</p>
+    <div class="container animated">
+        <h2>Hi, I’m <span style="color: #ED7D31;">Kuma</span> - <span style="border-bottom: 2.5px solid #ED7D31;">The Front End F🦊x</span></h2>
+        <h3><span style="color: #4F4A45;">Nice to meet you!</span></h3>
+        <p>Welcome! I'm the Creative Fox, and I'm passionate about crafting captivating digital experiences as a Freelance Front End Developer. With a keen eye for detail and a knack for bringing visions to life, I specialize in building dynamic, user-friendly websites that stand out in today's digital realm.</p>
+
+<p>My journey in the world of web development has been an adventurous blend of creativity and technical finesse. Over the years, I've honed my skills, working with diverse clients, from startups to established businesses, to create stunning and functional websites that leave a lasting impression.</p>
+
+<p>What sets me apart? I'm not just a developer; I'm a storyteller. I thrive on understanding your ideas and translating them into seamless, interactive web designs. From conceptualization to execution, I am dedicated to bringing your vision to fruition.</p>
+
+<p>Let's collaborate to turn your aspirations into digital masterpieces. Whether it's revamping an existing site or starting from scratch, I'm here to provide tailored solutions that reflect your brand, engage your audience, and drive results. Together, we can create a digital presence that truly sets you apart.</p>
+        
+        <div class="social-buttons">
+            <button class="social-button"><img src="https://www.svgrepo.com/show/32355/facebook.svg" alt="Facebook"></button>
+            <button class="social-button"><img src="https://www.svgrepo.com/show/30365/youtube.svg" alt="YouTube"></button>
+            <button class="social-button"><img src="https://www.svgrepo.com/show/922/linkedin.svg" alt="LinkedIn"></button>
+            <button class="social-button"><img src="https://www.svgrepo.com/show/68768/telegram.svg" alt="Telegram"></button>
+            <button class="social-button"><img src="https://www.svgrepo.com/show/41940/instagram.svg" alt="Instagram"></button>
         </div>
-    </section>
+    </div>
+</section>
 
     <section id="skills">
-        <div class="container animated">
-            <h2>Skills</h2>
-            <div class="skills-container">
+    <div class="container animated">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skills-content">
                 <div class="skills-image">
                     <img src="https://img.freepik.com/free-vector/hand-painted-fox-design_1152-89.jpg?w=740&t=st=1698235059~exp=1698235659~hmac=c616f4817863432b523f3c2fa1c742e890001a431bd7efb5f3a28fc989002931" alt="The Front End Fox Logo" height="70px" class="radius">
                 </div>
                 <div class="skills-bars">
                     <!-- Add your skill bars here -->
+                    <!-- Bar 1 -->
                     <div class="skill-bar">
                         <div class="skill-name">Responsibility</div>
                         <div class="skill-level" style="width: 100%;">100%</div>
                     </div>
+                    <!-- Bar 2 -->
                     <div class="skill-bar">
                         <div class="skill-name">HTML</div>
                         <div class="skill-level" style="width: 95%;">95%</div>
                     </div>
+                    <!-- Bar 3 -->
                     <div class="skill-bar">
                         <div class="skill-name">CSS</div>
                         <div class="skill-level" style="width: 85%;">85%</div>
                     </div>
+                    <!-- Bar 4 -->
                     <div class="skill-bar">
                         <div class="skill-name">Javascript</div>
                         <div class="skill-level" style="width: 75%;">75%</div>
                     </div>
+                    <!-- Bar 5 -->
                     <div class="skill-bar">
                         <div class="skill-name">Bootstrapt</div>
                         <div class="skill-level" style="width: 70%;">70%</div>
@@ -373,7 +429,11 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+
+
 
     <section id="experience">
         <div class="container animated">
@@ -430,22 +490,46 @@
             </div>
         </div>
     </section>
+    
+    
 
     <section id="portfolio">
-        <div class="container animated">
-            <h2>Portfolio</h2>
+    <div class="container animated">
+        <h2>Portfolio</h2>
+        <div class="portfolio-grid">
             <div class="portfolio-item">
-                <img src="image1.jpg" alt="Project 1">
+                <img src="https://img.freepik.com/free-photo/computer-screens-running-programming-code-empty-software-developing-agency-office-computers-parsing-data-algorithms-background-neural-network-servers-cloud-computing-data-room_482257-33353.jpg?w=1380&t=st=1698587800~exp=1698588400~hmac=f24e6c32ed329fb5b13047d5866fda85212eb80d63fef5a7734f4e8a5453f015" alt="Project 1">
                 <h3>Project 1</h3>
                 <p>Description of project 1.</p>
             </div>
             <div class="portfolio-item">
-                <img src="image2.jpg" alt="Project 2">
+                <img src="https://img.freepik.com/premium-vector/software-development-programming-coding-vector-concept_123447-266.jpg?w=740" alt="Project 2">
                 <h3>Project 2</h3>
                 <p>Description of project 2.</p>
             </div>
+            <div class="portfolio-item">
+                <img src="https://img.freepik.com/free-photo/close-up-man-writing-code-laptop_158595-5169.jpg?w=1060&t=st=1698587804~exp=1698588404~hmac=3843bf5c761b919a7e05beb2ede32dcc2d8b9ce02725da875217cb8799e25b4e" alt="Project 3">
+                <h3>Project 3</h3>
+                <p>Description of project 3.</p>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://img.freepik.com/free-photo/hacker-man-laptop_144627-25535.jpg?w=360&t=st=1698587970~exp=1698588570~hmac=ada12849d25239210f19fdfbc1a33d30186d5181e10548cfcd54ae0b23ba412c" alt="Project 4">
+                <h3>Project 4</h3>
+                <p>Description of project 4.</p>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg?w=900&t=st=1698587751~exp=1698588351~hmac=6ce921beeeb794af57e7feda26d7895b42a6cb96c9305d7568afc8f610033746" alt="Project 5">
+                <h3>Project 5</h3>
+                <p>Description of project 5.</p>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://img.freepik.com/free-photo/programming-background-collage_23-2149901779.jpg?w=1060&t=st=1698588033~exp=1698588633~hmac=23fad33cc5e52e05b2d30cf361dafae6a2dd764ce600a2a02ef4b22c691b8dd0" alt="Project 6">
+                <h3>Project 6</h3>
+                <p>Description of project 6.</p>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <section id="contact">
         <div class="container animated">
